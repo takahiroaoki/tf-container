@@ -6,7 +6,9 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"HashiCorp.terraform",
+				"yzhang.markdown-all-in-one"
 			]
 		}
 	}
