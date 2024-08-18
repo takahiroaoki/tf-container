@@ -8,16 +8,18 @@ RUN yum update -y \
     && rm -rf /var/cache/yum/* \
     && yum clean all
 
+# install awscli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \
     && sudo ./aws/install
 
+# useradd
 RUN useradd "dev-user" && echo "dev-user ALL=NOPASSWD: ALL" >> /etc/sudoers
-
 USER dev-user
 
-#RUN cd ~ \
-#    && git clone https://github.com/tfutils/tfenv.git .tfenv \
-#    && export PATH=$PATH:~/.tfenv/bin \
-#    && tfenv install 1.9.4 \
-#    && tfenv use 1.9.4
+# install tfenv & terraform
+WORKDIR /home/dev-user
+RUN git clone https://github.com/tfutils/tfenv.git .tfenv
+ENV PATH $PATH:/home/dev-user/.tfenv/bin
+RUN tfenv install 1.9.4 \
+    && tfenv use 1.9.4
