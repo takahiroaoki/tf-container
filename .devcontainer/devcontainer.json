@@ -1,0 +1,13 @@
+{
+	"name": "tf-container",
+	"dockerComposeFile": "docker-compose.yml",
+  "service": "terraform",
+	"workspaceFolder": "/",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	}
+}
