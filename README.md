@@ -37,4 +37,7 @@ $ terraform apply
 
 # Destroy resources.
 $ terraform destroy
+
+# Format tf files
+$ terraform fmt
 ```
