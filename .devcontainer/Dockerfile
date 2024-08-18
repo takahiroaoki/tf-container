@@ -12,9 +12,9 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     && unzip awscliv2.zip \
     && sudo ./aws/install
 
-RUN useradd "ec2-user" && echo "ec2-user ALL=NOPASSWD: ALL" >> /etc/sudoers
+RUN useradd "dev-user" && echo "dev-user ALL=NOPASSWD: ALL" >> /etc/sudoers
 
-USER ec2-user
+USER dev-user
 
 #RUN cd ~ \
 #    && git clone https://github.com/tfutils/tfenv.git .tfenv \
