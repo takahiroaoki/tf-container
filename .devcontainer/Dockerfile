@@ -1,6 +1,6 @@
-FROM amazonlinux:2
+FROM amazonlinux:2.0.20240719.0
 
-RUN yum update -y
+#RUN yum update -y
 #    && git~=2.46.0 \
 #    && aws-cli~=2.15.57
 
