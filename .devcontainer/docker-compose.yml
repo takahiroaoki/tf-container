@@ -8,3 +8,4 @@ services:
     volumes:
       - ..:/mnt/tf-container
     working_dir: /mnt/tf-container
+    tty: true
