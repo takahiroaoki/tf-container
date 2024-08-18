@@ -2,7 +2,7 @@
 	"name": "tf-container",
 	"dockerComposeFile": "docker-compose.yml",
   "service": "terraform",
-	"workspaceFolder": "/",
+	"workspaceFolder": "/mnt/tf-container",
 	"customizations": {
 		"vscode": {
 			"extensions": [
