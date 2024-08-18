@@ -8,6 +8,10 @@ RUN yum update -y \
     && rm -rf /var/cache/yum/* \
     && yum clean all
 
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+    && unzip awscliv2.zip \
+    && sudo ./aws/install
+
 #RUN cd ~ \
 #    && git clone https://github.com/tfutils/tfenv.git .tfenv \
 #    && export PATH=$PATH:~/.tfenv/bin \
