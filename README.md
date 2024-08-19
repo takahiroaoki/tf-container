@@ -57,6 +57,9 @@ $ terraform mv ${resource} ${destination}
 
 # Exclude resource out of terraform management
 $ terraform state rm ${resource}
+
+# Reflect the current state to tfstate
+$ terraform refresh
 ```
 ### Others
 ```
