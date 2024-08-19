@@ -37,14 +37,29 @@ Then you can use terraform commands.
 # Apply terraform file.
 $ terraform apply
 
+# Apply terraform file with no checks
+$ terraform apply -auto-approve
+
 # Destroy resources.
 $ terraform destroy
 
 # Format tf files
 $ terraform fmt
+
+# List resources managed by terraform
+$ terraform state list
+
+# Show detailed state
+$ terraform state show ${resource}
+
+# Update resource name
+$ terraform mv ${resource} ${destination}
+
+# Exclude resource out of terraform management
+$ terraform state rm ${resource}
 ```
 ### Others
 ```
 # Generate key pair
-$ ssh-keygen [-t <TYPE>][-b <BITS>][-f <FILENAME>]
+$ ssh-keygen [-t ${type}][-b ${bits}][-f ${filename}]
 ```
