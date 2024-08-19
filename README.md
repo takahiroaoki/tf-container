@@ -32,6 +32,7 @@ $ terraform init
 Then you can use terraform commands.
 
 ## Appendix
+### Terraform
 ```
 # Apply terraform file.
 $ terraform apply
@@ -41,4 +42,9 @@ $ terraform destroy
 
 # Format tf files
 $ terraform fmt
+```
+### Others
+```
+# Generate key pair
+$ ssh-keygen [-t <TYPE>][-b <BITS>][-f <FILENAME>]
 ```

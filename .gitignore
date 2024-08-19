@@ -5,3 +5,7 @@
 # .tfstate files
 **/*.tfstate
 **/*.tfstate.*
+
+# key files
+**/*.pem
+**/*.pub
