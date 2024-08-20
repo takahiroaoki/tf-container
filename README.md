@@ -60,6 +60,9 @@ $ terraform state rm ${resource}
 
 # Reflect the current state to tfstate
 $ terraform refresh
+
+# Output dependency graph for Graphviz
+$ terraform graph > ${filename}
 ```
 ### Others
 ```

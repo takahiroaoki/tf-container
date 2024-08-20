@@ -9,3 +9,9 @@
 # key files
 **/*.pem
 **/*.pub
+
+# dot files
+**/*.dot
+
+# others
+**/*.tar.gz
