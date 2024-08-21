@@ -33,12 +33,12 @@ resource "aws_security_group_rule" "web_in_https" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "web_out_tcp3000" {
+resource "aws_security_group_rule" "web_out_tcp80" {
   security_group_id        = aws_security_group.web_sg.id
   type                     = "egress"
   protocol                 = "tcp"
-  from_port                = 3000
-  to_port                  = 3000
+  from_port                = 80
+  to_port                  = 80
   source_security_group_id = aws_security_group.app_sg.id
 }
 
@@ -55,12 +55,12 @@ resource "aws_security_group" "app_sg" {
   }
 }
 
-resource "aws_security_group_rule" "app_in_tcp3000" {
+resource "aws_security_group_rule" "app_in_tcp80" {
   security_group_id        = aws_security_group.app_sg.id
   type                     = "ingress"
   protocol                 = "tcp"
-  from_port                = 3000
-  to_port                  = 3000
+  from_port                = 80
+  to_port                  = 80
   source_security_group_id = aws_security_group.web_sg.id
 }
 
