@@ -22,6 +22,10 @@ $ cat ~/.aws/credentials
 > [terraform]
 > aws_access_key_id = ${Your access key}
 > aws_secret_access_key = ${Your secret key}
+
+# Generate ssh keypair for ec2 instance (with empty passphrase)
+$ ssh-keygen -t rsa -b 2048 -f ./src/multi-az-aws-dev-keypair
+$ mv ./src/multi-az-aws-dev-keypair ./src/multi-az-aws-dev-keypair.pem
 ```
 
 ## How to use

@@ -72,7 +72,7 @@ resource "aws_db_instance" "mysql_standalone" {
   publicly_accessible    = false
   port                   = 3306
 
-  name                 = var.project
+  name                 = replace(var.project, "-", "") # DBNAME can contain only alphabet
   parameter_group_name = aws_db_parameter_group.mysql_standalone_parametergroup.name
   option_group_name    = aws_db_option_group.mysql_standalone_optiongroup.name
 
