@@ -9,3 +9,4 @@ $ mv ./credential/learning-k8s-keypair ./credential/learning-k8s-keypair.pem
 
 $ terraform init
 ```
+Ref: [learning-k8s](https://github.com/takahiroaoki/learning-k8s)
