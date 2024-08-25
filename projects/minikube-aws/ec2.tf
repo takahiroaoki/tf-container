@@ -3,7 +3,7 @@
 # ---------------------------------------------
 resource "aws_key_pair" "keypair" {
   key_name   = "${var.project}-keypair"
-  public_key = file("./credential/ec2-keypair.pub")
+  public_key = file("./credential/minikube-aws-keypair.pub")
 
   tags = {
     Name    = "${var.project}-keypair"
