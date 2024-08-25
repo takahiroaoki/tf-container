@@ -36,6 +36,15 @@ resource "aws_security_group_rule" "ec2_in_https" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
+resource "aws_security_group_rule" "ec2_in_forward" { # for minikube test
+  security_group_id = aws_security_group.ec2_sg.id
+  type              = "ingress"
+  protocol          = "tcp"
+  from_port         = 8080
+  to_port           = 8080
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
 resource "aws_security_group_rule" "ec2_out_http" {
   security_group_id = aws_security_group.ec2_sg.id
   type              = "egress"
