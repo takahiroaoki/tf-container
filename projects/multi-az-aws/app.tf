@@ -76,7 +76,7 @@ resource "aws_launch_template" "app_lt" {
 
   name = "${var.project}-${var.environment}-app-lt"
 
-  image_id = data.aws_ami.app.id
+  image_id = "ami-00c79d83cf718a893"
 
   key_name = aws_key_pair.keypair.key_name
 

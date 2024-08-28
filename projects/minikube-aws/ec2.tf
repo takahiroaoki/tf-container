@@ -15,7 +15,7 @@ resource "aws_key_pair" "keypair" {
 # EC2 instance
 # ---------------------------------------------
 resource "aws_instance" "ec2" {
-  ami                         = data.aws_ami.app.id
+  ami                         = "ami-00c79d83cf718a893"
   instance_type               = var.instance_type
   subnet_id                   = aws_subnet.public_subnet_1a.id
   associate_public_ip_address = true
