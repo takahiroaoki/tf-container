@@ -5,6 +5,8 @@ RUN dnf install -y \
          git \
          unzip \
          sudo \
+         # for "tfenv use <version>" command
+         findutils \
      && rm -rf /var/cache/dnf/* \
      && dnf clean all
 
@@ -21,5 +23,4 @@ USER dev-user
 WORKDIR /home/dev-user
 RUN git clone https://github.com/tfutils/tfenv.git .tfenv
 ENV PATH $PATH:/home/dev-user/.tfenv/bin
-RUN tfenv install 1.9.4
-#RUN tfenv use 1.9.4
+RUN tfenv install 1.9.4 && tfenv use 1.9.4
