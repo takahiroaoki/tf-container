@@ -1,0 +1,29 @@
+name: Setup
+description: Setup
+runs:
+  using: "composite"
+  steps:
+    - name: Install tools
+      run: |
+        dnf install -y \
+          git \
+          unzip \
+          sudo \
+          # for "tfenv use <version>" command
+          findutils \
+        && rm -rf /var/cache/dnf/* \
+        && dnf clean all
+      shell: sh
+    - name: Install Terraform
+      run: |
+        cd ~ \
+        && git clone https://github.com/tfutils/tfenv.git .tfenv
+        && export PATH=$PATH:$(pwd)/.tfenv/bin
+        tfenv install 1.9.4 && tfenv use 1.9.4
+      shell: sh
+    - name: Install awscli
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+        && unzip awscliv2.zip \
+        && ./aws/install
+      shell: sh
