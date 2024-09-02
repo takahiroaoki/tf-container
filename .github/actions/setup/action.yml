@@ -16,7 +16,7 @@ runs:
     - name: Install Terraform
       run: |
         cd ~ \
-        && git clone https://github.com/tfutils/tfenv.git .tfenv
+        && git clone https://github.com/tfutils/tfenv.git .tfenv \
         && export PATH=$PATH:$(pwd)/.tfenv/bin
         tfenv install 1.9.4 && tfenv use 1.9.4
       shell: sh
