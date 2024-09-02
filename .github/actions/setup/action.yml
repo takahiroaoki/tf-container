@@ -9,7 +9,6 @@ runs:
           git \
           unzip \
           sudo \
-          # for "tfenv use <version>" command
           findutils \
         && rm -rf /var/cache/dnf/* \
         && dnf clean all
