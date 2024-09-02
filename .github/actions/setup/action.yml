@@ -17,7 +17,7 @@ runs:
       run: |
         cd ~ \
         && git clone https://github.com/tfutils/tfenv.git .tfenv \
-        && export PATH=$PATH:$(pwd)/.tfenv/bin
+        && echo $PATH:$(pwd)/.tfenv/bin >> /etc/environment
         tfenv install 1.9.4 && tfenv use 1.9.4
       shell: sh
     - name: Install awscli
