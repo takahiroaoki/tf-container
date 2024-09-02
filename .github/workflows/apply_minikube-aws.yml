@@ -21,14 +21,12 @@ jobs:
         run: dnf install -y tar gzip
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-1
       - name: Apply
         working-directory: projects/minikube-aws
         run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} --profile terraform
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile terraform
+          aws configure set aws_region ap-northeast-1 --profile terraform
           sh gen-key.sh
           terraform init
           terraform apply -var instance_type=${{ github.event.inputs.instance_type }} -auto-approve
