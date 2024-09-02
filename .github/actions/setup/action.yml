@@ -15,11 +15,10 @@ runs:
       shell: sh
     - name: Install Terraform
       run: |
-        cd ~ \
-        && git clone https://github.com/tfutils/tfenv.git .tfenv \
-        && export PATH=$PATH:$(pwd)/.tfenv/bin \
-        && echo $PATH >> /etc/environment
-        tfenv install 1.9.4 && tfenv use 1.9.4
+        cd $HOME \
+        && git clone https://github.com/tfutils/tfenv.git .tfenv
+        $HOME/.tfenv/bin/tfenv install 1.9.4
+        $HOME/.tfenv/bin/tfenv use 1.9.4
       shell: sh
     - name: Install awscli
       run: |

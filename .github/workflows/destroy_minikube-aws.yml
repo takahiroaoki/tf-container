@@ -20,6 +20,8 @@ jobs:
           aws-region: ap-northeast-1
       - name: Destroy
         working-directory: projects/minikube-aws
+        env:
+          PATH: $PATH:$HOME/.tfenv/bin/tfenv
         run: |
           terraform init
           terraform destroy -auto-approve
