@@ -25,6 +25,16 @@ $ cat ~/.aws/credentials
 > aws_secret_access_key = ${Your secret key}
 ```
 
+Then setup s3 bucket for terraform backend (i.e. a storage for tfstate files)
+
+Do not forget update `bucket_name` variable for your own.
+
+```
+$ cd backend
+$ terraform init
+$ terraform apply -auto-approve
+```
+
 ## How to use
 Reference to each project's README @projects/${each project}
 

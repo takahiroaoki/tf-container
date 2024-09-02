@@ -9,10 +9,21 @@ If you do not want to use Packer, please use `ami-00c79d83cf718a893` as AMI.
 Minikube need 2CPUs, so the instance type is larger than t2.medium.
 
 ```
-$ cd /mnt/tf-container/projects/minikube-aws
+#1 You must setup s3 backet for terraform backend.
+$ cd ${path to backend}
+$ terraform init
+$ terraform apply -auto-approve
 
-# Generate ssh keypair for ec2 instance (with empty passphrase)
+#2 Update settings
+$ cd ${path to projects/minikube-aws}
+- update terraform.backend.s3.bucket to your own setting.
+- update ec2 instance type in terraform.tfVars
+
+
+#3 Generate ssh keypair for ec2 instance (with empty passphrase)
 $ sh /gen-key.sh
 
+#4 apply
 $ terraform init
+$ terraform apply -auto-approve
 ```
