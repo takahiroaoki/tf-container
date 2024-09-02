@@ -9,6 +9,13 @@ terraform {
       version = "~>5.64.0"
     }
   }
+  backend "s3" {
+    region  = "ap-northeast-1"
+    bucket  = "terraform-backend-20240902"
+    key     = "data/minikube-aws"
+    profile = "terraform"
+    encrypt = true
+  }
 }
 
 # ---------------------------------------------
