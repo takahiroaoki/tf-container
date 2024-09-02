@@ -1,2 +1,2 @@
 project       = "minikube-aws"
-instance_type = "t2.medium"
+instance_type = "t2.micro"
