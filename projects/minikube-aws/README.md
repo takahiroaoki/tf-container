@@ -9,7 +9,7 @@ If you do not want to use Packer, please use `ami-00c79d83cf718a893` as AMI.
 Minikube need 2CPUs, so the instance type is larger than t2.medium.
 
 ```
-cd /mnt/tf-container/projects/minikube-aws
+$ cd /mnt/tf-container/projects/minikube-aws
 
 # Generate ssh keypair for ec2 instance (with empty passphrase)
 $ ssh-keygen -t rsa -b 2048 -f ./credential/minikube-aws-keypair
