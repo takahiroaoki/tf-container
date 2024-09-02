@@ -21,6 +21,5 @@ jobs:
       - name: Destroy
         working-directory: projects/minikube-aws
         run: |
-          export PATH=$PATH:$HOME/.tfenv/bin/tfenv
-          terraform init
-          terraform destroy -auto-approve
+          $HOME/.tfenv/bin/terraform init
+          $HOME/.tfenv/bin/terraform destroy -auto-approve
