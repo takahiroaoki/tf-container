@@ -1,11 +1,11 @@
 resource "aws_security_group" "ec2_sg" {
-  name        = "${var.project}-ec2-sg"
+  name        = "${local.project}-ec2-sg"
   description = "ec2 security group"
   vpc_id      = aws_vpc.vpc.id
 
   tags = {
-    Name    = "${var.project}-ec2-sg"
-    Project = var.project
+    Name    = "${local.project}-ec2-sg"
+    Project = local.project
   }
 }
 

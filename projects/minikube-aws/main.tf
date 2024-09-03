@@ -29,10 +29,11 @@ provider "aws" {
 # ---------------------------------------------
 # Variables
 # ---------------------------------------------
-variable "project" {
-  type = string
+locals {
+  project = "minikube-aws"
 }
 
 variable "instance_type" {
   type = string
+  default = "t2.micro"
 }

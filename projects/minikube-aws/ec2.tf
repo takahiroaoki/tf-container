@@ -2,12 +2,12 @@
 # Key pair
 # ---------------------------------------------
 resource "aws_key_pair" "keypair" {
-  key_name   = "${var.project}-keypair"
+  key_name   = "${local.project}-keypair"
   public_key = file("./credential/minikube-aws-keypair.pub")
 
   tags = {
-    Name    = "${var.project}-keypair"
-    Project = var.project
+    Name    = "${local.project}-keypair"
+    Project = local.project
   }
 }
 
@@ -25,8 +25,8 @@ resource "aws_instance" "ec2" {
   key_name = aws_key_pair.keypair.key_name
 
   tags = {
-    Name    = "${var.project}-ec2"
-    Project = var.project
+    Name    = "${local.project}-ec2"
+    Project = local.project
     Type    = "ec2"
   }
 }

@@ -9,8 +9,8 @@ resource "aws_vpc" "vpc" {
   assign_generated_ipv6_cidr_block = false
 
   tags = {
-    Name    = "${var.project}-vpc"
-    Project = var.project
+    Name    = "${local.project}-vpc"
+    Project = local.project
   }
 }
 
@@ -24,8 +24,8 @@ resource "aws_subnet" "public_subnet_1a" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name    = "${var.project}-public-subnet-1a"
-    Project = var.project
+    Name    = "${local.project}-public-subnet-1a"
+    Project = local.project
     Type    = "public"
   }
 }
@@ -37,8 +37,8 @@ resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Name    = "${var.project}-public-rt"
-    Project = var.project
+    Name    = "${local.project}-public-rt"
+    Project = local.project
     Type    = "public"
   }
 }
@@ -55,8 +55,8 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Name    = "${var.project}-igw"
-    Project = var.project
+    Name    = "${local.project}-igw"
+    Project = local.project
   }
 }
 
