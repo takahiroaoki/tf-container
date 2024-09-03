@@ -54,7 +54,7 @@ resource "aws_db_instance" "mysql_standalone" {
 
   identifier = "${local.project}-mysql-standalone"
 
-  db_name = "grpc_sample"
+  db_name  = "grpc_sample"
   username = "app"
   password = random_string.db_password.result
 

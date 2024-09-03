@@ -38,9 +38,7 @@ resource "aws_instance" "app" {
       "echo 'export DB_PORT=${aws_db_instance.mysql_standalone.port}' >> ~/export.sh",
       "echo 'export DB_DATABASE=${aws_db_instance.mysql_standalone.db_name}' >> ~/export.sh",
       "echo 'export DB_USER=${aws_db_instance.mysql_standalone.username}' >> ~/export.sh",
-      "echo 'export DB_PASSWORD=${random_string.db_password.result}' >> ~/export.sh",
-      "source ~/export.sh",
-      "nohup grpc-sample server -r true &"
+      "echo 'export DB_PASSWORD=${random_string.db_password.result}' >> ~/export.sh"
     ]
   }
 
