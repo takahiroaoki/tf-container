@@ -21,4 +21,5 @@ jobs:
           aws configure set aws_region ap-northeast-1 --profile terraform
           sh gen-key.sh
           $HOME/.tfenv/bin/terraform init
+          $HOME/.tfenv/bin/terraform refresh
           $HOME/.tfenv/bin/terraform destroy -auto-approve
