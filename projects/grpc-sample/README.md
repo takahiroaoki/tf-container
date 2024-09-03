@@ -29,5 +29,5 @@ $ grpc-sample migrate up
 #6 Check it out
 - ssh to ec2 instance via SSH tunnel of VSCode
 - install the Postman extension
-- use localhost:8080 via SSH tunnel
+- use localhost:8080 via SSH tunnel (it needs port forward 8080:8080)
 ```
