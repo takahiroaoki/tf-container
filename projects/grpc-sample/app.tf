@@ -41,11 +41,6 @@ resource "aws_instance" "app" {
       "echo 'export DB_PASSWORD=${random_string.db_password.result}' >> ~/export.sh"
     ]
   }
-  user_data = <<EOF
-    #!/bin/bash
-    source ~/export.sh
-    nohup grpc-sample server -r true &
-  EOF
 
   tags = {
     Name    = "${local.project}-app"
