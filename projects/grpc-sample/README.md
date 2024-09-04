@@ -21,13 +21,13 @@ $ sh /gen-key.sh
 $ terraform init
 $ terraform apply -auto-approve
 
-#5 Migration & Boot
+#5 Migration
 - ssh to ec2 instance via SSH tunnel of VSCode
 $ source ~/export.sh
 $ grpc-sample migrate up
-$ grpc-sample server -r true
 
 #6 Check it out
+$ systemctl status grpc-sample
 - install the Postman extension
 - use localhost:8080 via SSH tunnel (it needs port forward 8080:8080)
 ```
