@@ -23,26 +23,8 @@ resource "aws_instance" "app" {
     aws_security_group.app_sg.id
   ]
   key_name = aws_key_pair.keypair.key_name
-
-  connection {
-    type        = "ssh"
-    host        = self.public_ip
-    user        = "ec2-user"
-    private_key = file("./credential/${local.project}-keypair.pem")
-  }
-  provisioner "remote-exec" {
-    inline = [
-      "touch ~/export.sh",
-      "echo '#!/bin/bash' >> ~/export.sh",
-      "echo 'export DB_HOST=${aws_db_instance.mysql_standalone.address}' >> ~/export.sh",
-      "echo 'export DB_PORT=${aws_db_instance.mysql_standalone.port}' >> ~/export.sh",
-      "echo 'export DB_DATABASE=${aws_db_instance.mysql_standalone.db_name}' >> ~/export.sh",
-      "echo 'export DB_USER=${aws_db_instance.mysql_standalone.username}' >> ~/export.sh",
-      "echo 'export DB_PASSWORD=${random_string.db_password.result}' >> ~/export.sh",
-      "sudo systemctl enable grpc-sample",
-      "sudo systemctl start grpc-sample",
-    ]
-  }
+  user_data = base64encode(data.template_file.user_data.rendered)
+  user_data_replace_on_change = true
 
   tags = {
     Name    = "${local.project}-app"
@@ -59,5 +41,17 @@ data "aws_ami" "grpc_sample" {
   filter {
     name   = "name"
     values = ["grpc-sample-ami-*"]
+  }
+}
+
+data "template_file" "user_data" {
+  template = file("./resource/user_data.tmpl.sh")
+
+  vars = {
+    db_host     = aws_db_instance.mysql_standalone.address
+    db_port     = aws_db_instance.mysql_standalone.port
+    db_database = aws_db_instance.mysql_standalone.db_name
+    db_user     = aws_db_instance.mysql_standalone.username
+    db_password = random_string.db_password.result
   }
 }
