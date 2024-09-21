@@ -15,7 +15,7 @@ $ cd ${path to projects/grpc-sample}
 - update terraform.backend.s3.bucket to your own setting.
 
 #3 Generate ssh keypair for ec2 instance
-$ sh /gen-key.sh
+$ sh gen-key.sh
 
 #4 Apply
 $ terraform init
